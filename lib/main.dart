@@ -60,7 +60,7 @@ class ProfilePicture extends StatelessWidget {
   Future<Uri> buildDownloadURL(CurrentUser user) {
     return fb
         .storage()
-        .refFromURL('gs://happy-haris-play.appspot.com/')
+        .refFromURL('gs:')
         .child(user.profileUrl)
         .getDownloadURL();
   }
@@ -107,13 +107,7 @@ buildUploadImage(CurrentUser user) {
     final dateTime = DateTime.now();
     final path = '$userId/$dateTime';
 
-    fb
-        .storage()
-        .refFromURL('gs://happy-haris-play.appspot.com/')
-        .child(path)
-        .put(file)
-        .future
-        .then((_) {
+    fb.storage().refFromURL('gs:').child(path).put(file).future.then((_) {
       FirebaseFirestore.instance
           .collection('users')
           .doc(user.id)
