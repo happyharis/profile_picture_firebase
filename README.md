@@ -1,3 +1,6 @@
+![Preview](https://user-images.githubusercontent.com/31005114/93415074-3e969580-f8d5-11ea-92d0-287c347af86a.gif)
+
+
 # profile_picture_firebase
 
 A new Flutter project.
