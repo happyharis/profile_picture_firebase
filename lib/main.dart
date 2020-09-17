@@ -58,9 +58,9 @@ class ProfilePicture extends StatelessWidget {
     if (_currentUser == null) return Center(child: CircularProgressIndicator());
 
     return CircleAvatar(
+      radius: 48,
       child: Icon(
         Icons.people_alt_rounded,
-        size: 96,
       ),
     );
   }
