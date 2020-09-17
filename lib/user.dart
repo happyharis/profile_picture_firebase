@@ -5,11 +5,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class CurrentUser {
   final String id;
   final String name;
-  final String profileUrl;
+  final String photoUrl;
   CurrentUser({
     this.id,
     this.name,
-    this.profileUrl,
+    this.photoUrl,
   });
 
   CurrentUser copyWith({
@@ -20,7 +20,7 @@ class CurrentUser {
     return CurrentUser(
       id: id ?? this.id,
       name: name ?? this.name,
-      profileUrl: profileUrl ?? this.profileUrl,
+      photoUrl: profileUrl ?? this.photoUrl,
     );
   }
 
@@ -28,7 +28,7 @@ class CurrentUser {
     return {
       'id': id,
       'name': name,
-      'profileUrl': profileUrl,
+      'profileUrl': photoUrl,
     };
   }
 
@@ -38,7 +38,7 @@ class CurrentUser {
     return CurrentUser(
       id: doc.id,
       name: doc.data()['name'],
-      profileUrl: doc.data()['profile_url'],
+      photoUrl: doc.data()['photo_url'],
     );
   }
 
@@ -48,7 +48,7 @@ class CurrentUser {
       CurrentUser.fromDoc(json.decode(source));
 
   @override
-  String toString() => 'User(id: $id, name: $name, profileUrl: $profileUrl)';
+  String toString() => 'User(id: $id, name: $name, profileUrl: $photoUrl)';
 
   @override
   bool operator ==(Object o) {
@@ -57,9 +57,9 @@ class CurrentUser {
     return o is CurrentUser &&
         o.id == id &&
         o.name == name &&
-        o.profileUrl == profileUrl;
+        o.photoUrl == photoUrl;
   }
 
   @override
-  int get hashCode => id.hashCode ^ name.hashCode ^ profileUrl.hashCode;
+  int get hashCode => id.hashCode ^ name.hashCode ^ photoUrl.hashCode;
 }
